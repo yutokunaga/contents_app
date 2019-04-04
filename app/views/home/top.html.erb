@@ -1,2 +1,13 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="home_container">
+  <div class="top_section">
+    <h1>Let's share your feelings about anime.</h1>
+    <p>This is a platform to talk about the impressions of anime.</p>
+  </div>
+  <div class="signup">
+    <%= link_to("Sign in", "/users/new", class:"btn btn-primary") %>
+  </div>
+  <div class="login">
+    <%= link_to("Log in", "/users/login_form", class:"btn btn-primary") %>
+  </div>
+</div>
+

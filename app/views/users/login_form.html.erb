@@ -1,0 +1,23 @@
+<div class="new_account">
+  <h1>Log in</h1>
+  <p>Please fill in this form to log in.</p>
+  <%= form_with url:login_path, local: true do |form| %>
+    <%= form.label :name %>
+    <li>
+      <%= form.text_field :name %>
+    </li>
+    <%= form.label :email %>
+    <li>
+      <%= form.email_field :email %>
+    </li>
+    <%= form.label :password %>
+    <li>
+      <%= form.password_field :password %>
+    </li>
+    <%= form.label :password_confirmation, "Confirmation" %>
+    <li>
+      <%= form.password_field :password_confirmation %>
+    </li>
+    <%= form.submit "Log in", class: "btn btn-primary" %>
+  <% end %>
+</div>

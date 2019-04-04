@@ -1,0 +1,23 @@
+<div class="new_account">
+  <h1>Sign Up</h1>
+  <p>Please fill in this form to create an account.</p>
+  <%= form_with url: users_create_path, local: true do |form| %>
+    <%= form.label :name %>
+    <li>
+      <%= form.text_field :name %>
+    </li>
+    <%= form.label :email %>
+    <li>
+      <%= form.email_field :email %>
+    </li>
+    <%= form.label :password %>
+    <li>
+      <%= form.password_field :password %>
+    </li>
+    <%= form.label :password_confirmation, "Confirmation" %>
+    <li>
+      <%= form.password_field :password_confirmation %>
+    </li>
+    <%= form.submit "Create my account", class: "btn btn-primary" %>
+  <% end %>
+</div>

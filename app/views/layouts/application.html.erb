@@ -6,9 +6,75 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
+  <header>
+    <div class="header_left">
+      <% if @current_user %>
+      <%= link_to("Contents App", "/posts/index") %>
+        <% else %>
+      <%= link_to("Contents App", "/") %>
+        <% end %>
+    </div>
+    <ul class="header_right">
+      <% if @current_user %>
+        <li>
+          <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+        </li>
+        <li>
+          <%= link_to("Posts", "/posts/index") %>
+        </li>
+        <li>
+          <%= link_to("Users", "/users/index") %>
+        </li>
+        <li>
+          <%= link_to("Log out", "/logout") %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to("Sign up", "/signup") %>
+        </li>
+        <li>
+          <%= link_to("Log in", "/login") %>
+        </li>
+      <% end %>
+    </ul>
+  </header>
     <%= yield %>
+  <footer>
+      <div class="header_left">
+        <% if @current_user %>
+          <%= link_to("Contents App", "/posts/index") %>
+        <% else %>
+          <%= link_to("Contents App", "/") %>
+        <% end %>
+      </div>
+      <ul class="header_right">
+        <% if @current_user %>
+          <li>
+            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+          </li>
+          <li>
+            <%= link_to("Posts", "/posts/index") %>
+          </li>
+          <li>
+            <%= link_to("Users", "/users/index") %>
+          </li>
+          <li>
+            <%= link_to("Log out", "/logout", {method: :post}) %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("Sign up", "/signup") %>
+          </li>
+          <li>
+            <%= link_to("Log in", "/login") %>
+          </li>
+        <% end %>
+      </ul>
+  </footer>
   </body>
 </html>
